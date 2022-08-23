@@ -1,4 +1,5 @@
 import HomePage from "../../PageObject/HomePage.js"
+import GuideVariables from "../../PageObject/GuidePage.js"
 
 describe('Texo IT', () => {
   it('Verifica se acessa o menu guide', () => {
@@ -6,6 +7,6 @@ describe('Texo IT', () => {
     
     cy.visit(Cypress.config().baseUrl);
     home.menuGuide();
-    cy.url().should('include', '/guide')
+    cy.url().should('include', GuideVariables.URL)
   })
 })
