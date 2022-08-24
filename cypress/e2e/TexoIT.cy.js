@@ -30,16 +30,12 @@ describe('Texo IT', () => {
   })
 
   it('Verifica elemento 6 do array', () => {
-    for (let index = 0; index < arrayJson.length; index++) {
-      if (index == 5) {
-        const element = arrayJson[index];
-        const convertToString = JSON.stringify(element);
-        expect(convertToString)
-        .contains('accusamus ea aliquid et amet sequi nemo')
-        .contains('https://via.placeholder.com/600/56a8c2')
-        .contains('https://via.placeholder.com/150/56a8c2')
-        .contains('"albumId":1')
-      }
-    }
+    const elementID = 5;
+    const arrayElement = albumsPhtos.readElementPostion(arrayJson, elementID)
+    expect(arrayElement)
+      .contains('accusamus ea aliquid et amet sequi nemo')
+      .contains('https://via.placeholder.com/600/56a8c2')
+      .contains('https://via.placeholder.com/150/56a8c2')
+      .contains('"albumId":1')
   })
 })
