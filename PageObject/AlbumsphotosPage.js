@@ -1,7 +1,7 @@
 
 class Albumsphotos {
     constructor() {
-        this.URL = 'users/1/albums';
+        this.URL = '/albums/1/photos';
       }
 }
 

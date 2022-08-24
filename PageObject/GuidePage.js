@@ -1,4 +1,4 @@
-const linkalbumsPhotos = '/users/1/albums';
+const linkalbumsPhotos = '/albums/1/photos';
 const routes = 'ul li';
 
 class GuidePage {
