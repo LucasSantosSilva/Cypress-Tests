@@ -8,7 +8,7 @@ const albumsPhtos = new AlbumsphtosPage();
 
 describe('Texo IT', () => {
   it('Verifica se acessa o menu guide', () => {
-    
+
     cy.visit(Cypress.config().baseUrl);
     home.menuGuide();
     cy.url().should('include', guide.URL)
@@ -18,5 +18,13 @@ describe('Texo IT', () => {
     guide.navigateToAlbumsPhotos();
     guide.clickAlbumsPhotos();
     cy.url().should('include', albumsPhtos.URL)
+  })
+
+  it('ler HTML e salvar dados em json', () => {
+    cy.get("pre").then(($el) => {
+      const text = $el.text(); // Obtemos o texto
+      const separeTextToJson = JSON.parse(text) // transforma em JSON
+      expect(separeTextToJson).to.not.equal(null);
+    })
   })
 })
