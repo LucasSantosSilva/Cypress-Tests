@@ -1,7 +1,6 @@
-import HomePage from "../../../PageObject/HomePage.js"
-import GuidePage from "../../../PageObject/GuidePage.js"
-import AlbumsphtosPage from "../../../PageObject/AlbumsphotosPage.js"
-import 'cypress-mochawesome-reporter/register';
+import HomePage from "../../../pageObject/homePage.js"
+import GuidePage from "../../../pageObject/guidePage.js"
+import AlbumsphtosPage from "../../../pageObject/albumsphotosPage.js"
 
 const home = new HomePage();
 const guide = new GuidePage();
