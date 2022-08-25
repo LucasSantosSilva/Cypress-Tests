@@ -21,27 +21,57 @@ describe('Texo IT APIs', () => {
             method: 'POST',
             url: Cypress.config().baseUrl + nameURL,
             body: {
-                "name": "Leanne Graham",
+                "name": "Lucas Teste",
                 "username": "Bret",
                 "email": "Sincere@april.biz",
-                "street": "Kulas Light",
-                "suite": "Apt. 556",
-                "city": "Gwenborough",
-                "zipcode": "92998-3874",
-                "lat": "-37.3159",
-                "lng": "81.1496",
+                "address": {
+                    "street": "Kulas Light",
+                    "suite": "Apt. 556",
+                    "city": "Gwenborough",
+                    "zipcode": "92998-3874",
+                    "geo": {
+                        "lat": "-37.3159",
+                        "lng": "81.1496",
+                    },
+                },
                 "phone": "1-770-736-8031 x56442",
                 "website": "hildegard.org",
-                "name": "Romaguera-Crona",
-                "catchPhrase": "Multi-layered client-server neural-net",
-                "bs": "harness real-time e-markets"
+                "company": {
+                    "name": "Romaguera-Crona",
+                    "catchPhrase": "Multi-layered client-server neural-net",
+                    "bs": "harness real-time e-markets"
+                },
             }
         }).then((resp) => {
             const idRequest = resp.body.id
             expect(idRequest).to.eq(11)
             expect(resp.status).to.eq(201)
         })
+    })
 
+    it('PUT - Altera usuário', () => {
+        const nameURL = 'users/5'
+        cy.request({
+            method: 'PUT',
+            url: Cypress.config().baseUrl + nameURL,
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: {
+                "email": "Alterado@april.biz",
+                "address" : {
+                    "geo" : {
+                        "lat": "40.0000",
+                        "lng": "100.0000"
+                    }
+                }
+            }
+        }).then((resp) => {
+            expect(resp.body.email).to.eq('Alterado@april.biz')
+            expect(resp.body.address.geo.lat).to.eq('40.0000')
+            expect(resp.body.address.geo.lng).to.eq('100.0000')
+            expect(resp.status).to.eq(200)
+        })
     })
 })
 
