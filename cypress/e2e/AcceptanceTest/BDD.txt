@@ -1,0 +1,20 @@
+Cenário 1: 
+Dado eu como usuário desejo ir para o menu Guide
+Quando clicar no submenu "Guide"
+Então deve levar para a página "Guide"
+
+Cenário 2:
+Dado eu como usuário desejo navegar pela página 
+Quando encontrar o link "/albums/1/photos"
+E clicar para abrir a nova rota 
+Então deve levar para a página "albums photos"
+
+Cenário 3:
+Dado eu como usuário desejo conferir os dados 
+Quando entro com a rota "/albums/1/photos"
+Então deve apresentar todos os dados 
+
+Cenário 4:
+Dado eu como usuário desejo conferir os meus dados em específico 
+Quando entro com a rota "albums/1/photos?id=6"
+Então deve apresentar somente os meus dados

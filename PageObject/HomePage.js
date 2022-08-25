@@ -3,9 +3,9 @@ const menuGuide = 'Guide';
 
 class HomePage {
     menuGuide() {
-        const menu = cy.get(menuStruct)
-        menu.contains(menuGuide)
-        menu.click()
+        cy.get(menuStruct)
+        .contains(menuGuide)
+        .click()
     }
 }
 export default HomePage
